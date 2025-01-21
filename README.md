@@ -165,8 +165,9 @@ Handling missing values is a critical step in ensuring the quality and reliabili
 The original dataset contained **13 variables**, of which **11 variables had missing values**, accounting for more than **5%** of observations in most cases. The figure     below show the percentage of missing values for each variable and the proportion of records by number of missing values: 
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/e39c9403-7d4a-4e30-940a-e3213241cdd8" alt="Missing Data Analysis" width="600" />
+  <img width="355" alt="image" src="https://github.com/user-attachments/assets/21c0e536-d8e2-444f-9904-28a289fd1977" />
 </div>
+
 
 #### Key Observations:
 - **56.4%** of the records were complete cases.
@@ -184,25 +185,24 @@ Understanding the nature of missingness is critical for selecting appropriate ha
 
 #### Diagnostic Steps:
 1. **Little’s MCAR Test:**
-   <div align="center">
-     <img src="https://github.com/user-attachments/assets/4437105c-8a87-4dd5-9c5b-48ea2d0f9477" alt="Little's MCAR Test Results" width="300" />
-   </div>
+<div align="center">
+  <img width="296" alt="image" src="https://github.com/user-attachments/assets/a0238b27-73da-4d39-a5d2-81718f104083" />
+</div>
 
    - The p-value obtained was **< 0.05**, indicating that the missing data is **not MCAR**.
 
 2. **Logistic Regression for MAR:**
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/9a3cb907-eb53-4bca-b2a9-02072fe83ee9" alt="Logistic Regression for MAR" width="700" />
-</div
-
+  <img src="https://github.com/user-attachments/assets/7e5af1c6-728a-4d0c-89f1-c183c335a30f" alt="image" />
+</div>
 
    - Logistic regression models were used to assess whether missingness in one variable could be predicted by other observed variables. Significant predictors indicated the missingness followed the MAR mechanism.
 
 3. **Missing Data Patterns:**
-   <div align="center">
-     <img src="https://github.com/user-attachments/assets/ce006a41-a518-4a15-b29e-07ecef9439bd" alt="Missing Data Patterns Heatmap" width="500" />
-   </div>
+<div align="center">
+  <img width="498" alt="image" src="https://github.com/user-attachments/assets/3c62f436-1d62-42d9-bba2-fd2a79f0f568" />
+</div>
 
    - Correlation heatmaps revealed moderate correlations between missing values in variables like `DEROG`, `DELINQ`, and `NINQ`, suggesting shared underlying factors influencing missingness.
 
@@ -358,11 +358,9 @@ This section highlights the key insights extracted from the exploratory data ana
 ---
 
 #### **1. Default Rate Overview**
-
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/889def7f-ecaf-4321-9ef9-84319f522e58" alt="Default Rate Overview" width="700" />
+  <img width="474" alt="image" src="https://github.com/user-attachments/assets/2a59fc67-4d52-4df7-8c64-276801d5f611" />
 </div>
-
 
 - **High Default Rate**: The bank faces a default rate of approximately **20%**, significantly exceeding the industry standard of 1–5%.
 - **Loan Security**: Most loans (82.93%) are fully secured, with default rates around 20%. Unsecured loans, though a small portion (<2%), have a much higher default rate of **32.43%**, emphasizing their riskiness.
@@ -373,7 +371,7 @@ This section highlights the key insights extracted from the exploratory data ana
 - **Default Rates Across Loan Amounts**:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/1ccb3628-ca2e-4b67-8be0-0ad39eb5e513" alt="Image" width="500" />
+  <img width="358" alt="image" src="https://github.com/user-attachments/assets/9cbc0ea5-8aa1-4654-9a41-e5ac0978f3c7" />
 </div>
 
   - **Average Loan**: $18,846 with a typical range between $11,300 and $23,500.
@@ -383,35 +381,13 @@ This section highlights the key insights extracted from the exploratory data ana
 
 ---
 
-#### **3. Borrower Demographics**
-
-- **Job Tenure (YOJ)**:
-
-  <div align="center">
-    <img src="https://github.com/user-attachments/assets/24adcb20-ecca-4289-843d-50ba16635baa" alt="Figure" width="600" />
-  </div>
-
-  - Borrowers with **<5 years** of job tenure face the highest default risk, particularly younger borrowers with less financial stability.
-  - Borrowers with **20–30 years** of job tenure show significantly lower default rates, reflecting greater stability.
-  - Borrowers with **40+ years** of tenure exhibit a sharp rise in default rates, although this observation is based on a smaller sample size.
-
-- **Occupation**:
-
-  <div align="center">
-    <img src="https://github.com/user-attachments/assets/7aaf5706-e708-4b55-bdc9-c7cf31080c32" alt="Figure" width="500" />
-  </div>
-
-  - **Highest Risk**: Sales professionals and self-employed individuals have default rates exceeding **30%**.
-  - **Lowest Risk**: Professionals, executives, and office workers show default rates under **20%**, indicating stronger financial stability.
-
----
-
-#### **4. Behavioral Risk Indicators**
+#### **3. Behavioral Risk Indicators**
 
 - **Debt-to-Income Ratio (DEBTINC)**:
-  <div align="center">
-    <img width="500" alt="image" src="https://github.com/user-attachments/assets/1bfdf85b-fdc0-41ef-b8ac-f00f7e118920" />
-  </div>
+
+<div align="center">
+  <img width="376" alt="image" src="https://github.com/user-attachments/assets/0e8d5a14-23bf-4896-b720-4d551b2f787e" />
+</div>
 
   - Borrowers with **DEBTINC > 50%** have a **100% default rate**, indicating extremely high risk.
   - Borrowers with **DEBTINC between 0–10%** also show **default rates above 50%**, possibly due to other factors.
@@ -420,26 +396,26 @@ This section highlights the key insights extracted from the exploratory data ana
 
 - **Number of Inquiries (NINQ)**:
   <div align="center">
-    <img width="500" alt="image" src="https://github.com/user-attachments/assets/ddfa5823-1078-4f71-9c4c-5d86cef64e3d" />
-  </div>
+  <img width="369" alt="image" src="https://github.com/user-attachments/assets/d286ff71-5bcf-4665-8ad6-e080c0bc2f3c" />
+</div>
 
   - Higher NINQ correlates with higher default rates.
   - Borrowers with **12+ inquiries** face a **100% default rate**, indicating extreme financial instability.
   - A generally linear trend exists, except for inquiries between **7–11**, where the pattern slightly deviates.
 
 - **Derogatory Marks (DEROG)**:
-  <div align="center">
-    <img width="500" alt="image" src="https://github.com/user-attachments/assets/24dcd718-c208-4a37-957a-d19fea8bd57a" />
-  </div>
+<div align="center">
+  <img width="336" alt="image" src="https://github.com/user-attachments/assets/387061fd-5718-429e-8900-1a565acf9879" />
+</div>
 
   - Default rates increase with more derogatory marks.
   - At **2+ derogatory marks** there are more defaulters than non-defaulters.
   - For those with **5+ marks**, the **default rate reaches 100%**, making derogatory marks a strong predictor of risk.
 
 - **Delinquencies (DELINQ)**:
-  <div align="center">
-    <img width="500" alt="image" src="https://github.com/user-attachments/assets/e1b60a6a-de7f-4e0d-914b-5393de292014" />
-  </div>
+<div align="center">
+  <img width="373" alt="image" src="https://github.com/user-attachments/assets/a9a22081-49b1-408a-a086-28d307739b5e" />
+</div>
 
   - Borrowers with **0 delinquencies** have a low **13.8% default rate**, reflecting financial reliability.
   - With **1 delinquency**, the default rate rises to **27.1%**, doubling to **42.9%** with **2 delinquencies**.
@@ -449,7 +425,7 @@ This section highlights the key insights extracted from the exploratory data ana
 - **Credit Line Age (CLAGE)**:
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/6ce97759-720e-40cc-93cc-807260982398" alt="Image" width="500" />
+  <img width="333" alt="image" src="https://github.com/user-attachments/assets/4ade5d0a-da33-4b3f-b266-049f0a912e7f" />
 </div>
 
   - Borrowers with **shorter credit histories (<180 months)** show higher default rates.
@@ -457,30 +433,24 @@ This section highlights the key insights extracted from the exploratory data ana
 
 ---
 
-#### **5. Equity and Collateral**
-- **Negative Equity**:
-  - Borrowers with negative equity ("underwater") have a default rate of **32.43%**, which is significantly higher than average.
-  - However, most borrowers with negative equity still make payments, indicating that equity alone is not a definitive predictor of default.
-
----
-#### **6. Comparative Analysis of Loan Defaults**
+#### **4. Comparative Analysis of Loan Defaults**
 - **Recoverable vs Definitive Losses**:
 
-  <div align="center">
-    <img width="474" alt="image" src="https://github.com/user-attachments/assets/67b20ddf-4b34-43b4-9c00-4dcb271aee92" />
-  </div>
+ <div align="center">
+  <img width="474" alt="image" src="https://github.com/user-attachments/assets/f801e60e-314d-47f3-9d90-3ff48a2cde51" />
+</div>
 
   - **92.89% of defaulted loans** are recoverable through collateral, reducing the bank’s long-term exposure.
   - **Definitive losses** represent only **7.11%** of total defaults, showing that a strong collateral policy mitigates most financial risks.
 
 ---
-#### **7. Credit Score Insights **
+#### **5. Credit Score Insights **
 
 - **Default Rates Across Credit Score Categories**:
 
-   <div align="center">
-     <img width="474" alt="image" src="https://github.com/user-attachments/assets/8beb8b20-2942-4eb4-aa02-e4c332b89548" />
-   </div>
+  <div align="center">
+  <img width="474" alt="image" src="https://github.com/user-attachments/assets/dce9632a-fd1a-4dc1-b5f4-9fc2bbc8120a" />
+</div>
 
   - Borrowers in the **Poor credit category (300–579)** have the highest default rate, exceeding **50%**.
   - Default rates drop significantly in the **Fair (26%)**, **Good (11.7%)**, **Very Good (5%)**, and **Excellent (4.4%)** categories.
@@ -489,18 +459,26 @@ This section highlights the key insights extracted from the exploratory data ana
 - **Default Rate and Average Loan Amount vs Credit Score**:
 
    <div align="center">
-     <img width="394" alt="image" src="https://github.com/user-attachments/assets/eaeb9e4f-822d-4812-b89c-5f77474bf071" />
-   </div>
+  <img width="394" alt="image" src="https://github.com/user-attachments/assets/36792e0c-e613-4cb8-ac15-383550306b58" />
+</div>
 
-  - Default rates fall below **5%** beyond the **732 credit score threshold**, while average loan amounts increase.
-  - Borrowers with scores above **732** are offered larger loans (over $30,000) due to reduced risk.
-  - Borrowers below **600** face default rates exceeding **20%**, indicating high risk.
+   - **Default Rates**:
+     - Scores **below 500** have high default rates; restricting loans to **600+** reduces defaults to **<15%**.
+     - Beyond **730**, default rates drop below **5%**, indicating minimal risk.
+
+   - **Loan Amounts**:
+     - Average loan amounts remain stable (~$20,000) when scores **below 700** are considered.
+     - Scores **above 730** see loan amounts rise, exceeding **$30,000** for scores over **800**.
+
+   - **730 Threshold**:
+     - Serves as a critical benchmark for reduced risk and larger loan approvals.
+
 
 - **Default Risk and Average Loan Amount by Credit Score Category**:
 
    <div align="center">
-     <img width="399" alt="image" src="https://github.com/user-attachments/assets/4324a497-bc0c-48a2-8dfc-016b31481f57" />
-   </div>
+  <img width="399" alt="image" src="https://github.com/user-attachments/assets/7293d3e5-3350-4c6a-a517-6ef675b661b4" />
+</div>
 
   - Borrowers in the **Poor** category have a default rate around **50%** and the lowest average loan amounts (below $18,000).
   - **Fair category** borrowers have a default rate of **30%**, with average loan amounts slightly higher than **Poor** borrowers.
@@ -509,22 +487,22 @@ This section highlights the key insights extracted from the exploratory data ana
 
 - **Impact of Credit Score Thresholds on Default Rate, Loan Amount, and Profit**:
 
-   <div align="center">
-     <img width="474" alt="image" src="https://github.com/user-attachments/assets/0ed79e3f-b76b-44fb-a57f-25faffb367fe" />
-   </div>
+  <div align="center">
+  <img width="474" alt="image" src="https://github.com/user-attachments/assets/3215984c-ec7a-45b2-a0bb-f745cdea2df2" />
+</div>
 
   - Increasing the credit score threshold reduces default rates, particularly beyond the **732 threshold**, where default rates drop below **5%**.
   - Higher thresholds result in fewer loans being issued, reducing the total loan amount and profit.
   - A trade-off exists: while higher thresholds decrease risk, they also lower profitability due to fewer approved loans.
 
 ---
-## 9. Predictive Modeling Insights
+## Predictive Modeling Insights
 
 The predictive modeling phase provided valuable insights into the bank's loan approval and default prediction process. The dataset was partitioned into training (70%), validation (20%), and testing (10%) sets to ensure robust model evaluation.By evaluating several machine learning algorithms, the strengths and limitations of each model were identified, allowing for the selection of the most effective strategy for optimizing loan approval processes.
 
 ---
 
-### 9.1 Model Performance Overview
+### 1. Model Performance Overview
 
 | **Model**            | **Accuracy** | **Sensitivity** | **Specificity** | **Precision** | **AUC**  |
 |-----------------------|--------------|-----------------|-----------------|---------------|----------|
@@ -540,7 +518,7 @@ The predictive modeling phase provided valuable insights into the bank's loan ap
 - **KNN** demonstrated high precision but poor sensitivity, limiting its usefulness for capturing a sufficient number of defaulters.
 
 ---
-### 9.2 Random Forest Superiority
+### 2. Random Forest Superiority
 
 The **Random Forest model** emerged as the optimal predictive tool due to its strong performance across multiple key metrics, striking an effective balance between sensitivity, precision, and overall classification ability:
 
@@ -552,30 +530,32 @@ This balance makes the Random Forest model the most suitable choice for managing
 
 ---
 
-### 9.3 SHAP Analysis: Enhancing Model Interpretability
 
-**SHAP (Shapley Additive Explanations)** was used to improve the interpretability of the **Random Forest model**, ensuring higher transparency and compliance with ECOA regulations.SHAP values will help explain the contribution of each feature to individual predictions, offering a clear view of how different variables influence the model's output. Meanwhile, feature importance plots will provide a broader understanding of which factors most significantly impact the model's overall predictions. 
+### 3. SHAP Analysis: Enhancing Model Interpretability
 
-SHAP is based on the concept of Shapley values from cooperative game theory, which assigns a value to each feature by considering its contribution to the model’s prediction. It does this by considering all possible combinations of features and their marginal contributions.
+**SHAP (Shapley Additive Explanations)** improves the interpretability of the **Random Forest model** by quantifying each feature's influence on individual predictions. This ensures transparency and compliance with **ECOA regulations**.
 
-For each loan applicant, SHAP calculates a SHAP value for each feature, showing how much that feature is pushing the prediction towards a default (class 1) or away from it (class 0). 
+- **How SHAP Works**:
+  - Derived from **Shapley values** in game theory, SHAP calculates each feature's contribution to predictions by evaluating all possible feature combinations.
+  - SHAP values indicate whether a feature pushes a prediction towards default (class 1) or non-default (class 0).
 
+SHAP provides clear, actionable insights into how features influence predictions, making the model more transparent and reliable for decision-making.
 
- **SHAP Value Interpretations**:
+ **SHAP Value Interpretation**:
 - For individual predictions, SHAP values clearly show how features push the default probability higher or lower.
 
-    <div align="center">
-  <img width="800" alt="image" src="https://github.com/user-attachments/assets/89d86b92-4fda-41f9-980e-566140d8d9b6" />
+ <div align="center">
+  <img width="700" alt="image" src="https://github.com/user-attachments/assets/25e12a09-1d64-4b10-9ef7-56b94243f20d" />
 </div>
 
    - Example:
      - **Row 1578 (Default)**: High DEBTINC and short CLAGE contributed positively to the predicted probability of default.
      - **Row 2370 (Non-Default)**: Longer CLAGE and no delinquencies reduced the predicted probability of default.
 
-### **SHAP vs Model Predictions**
+### 4. SHAP vs Model Predictions
 
 <div align="center">
-  <img width="600" alt="image" src="https://github.com/user-attachments/assets/9856d911-c72c-4935-ad51-e42d97cd57b1" />
+  <img width="474" alt="image" src="https://github.com/user-attachments/assets/ca555818-4d48-4911-b333-7a8710d3c60b" />
 </div>
 
 - The plot compares **Random Forest model probabilities (blue)** with **SHAP-calculated probabilities (red)** for 200 records.
@@ -583,14 +563,66 @@ For each loan applicant, SHAP calculates a SHAP value for each feature, showing 
 - A **Mean Absolute Error (MAE) of 3.23%** confirms SHAP's accuracy in representing the model's predictions.
 - SHAP enhances model transparency while maintaining alignment with prediction outputs.
 
-#### Why SHAP Matters:
-- Improves model transparency and trust by explaining how predictions are made.
-- Identifies actionable drivers of default risk, helping refine loan approval strategies.
-- Bridges the gap between predictive power and interpretability, ensuring that the Random Forest model can be confidently applied in real-world scenarios.
-
 ---
 
 With the integration of **SHAP** analysis, the Random Forest model not only excels in predictive performance but also provides a transparent framework for understanding the factors driving loan default risk.
+
+---
+### 5. Impact of Predictive Model on Loan Approvals and Risk Management
+
+The predictive model has significantly improved the bank's decision-making process by providing clear insights into loan default probabilities. By enabling data-driven risk assessments, the model supports more informed decisions, reduces uncertainty, and enhances the loan approval process. High-risk applicants are identified more accurately, allowing the bank to manage credit risk effectively, optimize profitability, and maintain transparency.
+
+---
+
+#### **Actual vs Estimated Default Rate with Model-Based Approvals**
+
+<div align="center">
+  <img width="457" alt="image" src="https://github.com/user-attachments/assets/ced1649b-347d-44c2-b69d-32970a02c3ac" />
+</div>
+
+
+- **Historical Default Rate**: 19.76%.
+- **Model-Based Default Rate**: 2.11% (an **89% reduction**).
+- **Key Insight**: The model's predictions significantly lower financial risk, reduce defaults, and improve portfolio stability by directing resources toward low-risk applicants.
+
+---
+
+#### ** Loans Issued vs Defaulted (Pre-Model vs Post-Model)**
+
+<div align="center">
+  <img width="451" alt="image" src="https://github.com/user-attachments/assets/091031fa-1c2d-4ef6-82bf-2931c0ed789d" />
+</div>
+
+
+- **Pre-Model**:
+  - **Total Loans Issued**: $104,783,000.
+  - **Defaulted Loans**: $18,860,200.
+- **Post-Model**:
+  - **Total Loans Issued**: $84,764,800.
+  - **Defaulted Loans**: $491,100 (a **97% reduction**).
+- **Insight**: While total loans issued decreased by **19%**, the model drastically reduced defaulted loan amounts, enhancing portfolio quality and financial stability.
+
+---
+
+#### ** Definitive vs Recoverable Losses (Pre-Model vs Post-Model)**
+
+<div align="center">
+  <img width="474" alt="image" src="https://github.com/user-attachments/assets/950a808d-17b1-4228-a56d-0b32df22e894" />
+</div>
+
+- **Pre-Model**:
+  - **Definitive Losses**: $1,352,398.
+  - **Recoverable Losses**: $17,507,802.
+- **Post-Model**:
+  - **Definitive Losses**: $30,830 (a **98% reduction**).
+  - **Recoverable Losses**: $460,270 (a **97% reduction**).
+- **Insight**: The model significantly minimizes both definitive and recoverable losses, improving resource allocation and overall portfolio quality.
+
+---
+
+### Conclusion
+
+The predictive model demonstrates exceptional capability in reducing default rates and financial losses while ensuring smarter loan approvals. It enables the bank to target low-risk applicants with larger loans and better terms, fostering portfolio stability and profitability in real-world scenarios.
 
 
 
