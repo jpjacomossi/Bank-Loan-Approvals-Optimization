@@ -1,6 +1,6 @@
 # Optimization of Bank Loan Approvals
 
-## Table of Contents
+# Table of Contents
 
 1. [Background and Overview](#background-and-overview)  
 
@@ -9,27 +9,28 @@
 3. [Executive Summary](#executive-summary)
 
 4. [Handling Missing Values](#handling-missing-values)  
-   4.1 [Overview](#41-overview)  
-   4.2 [Missing Data Analysis](#42-missing-data-analysis)  
-   4.3 [Diagnosing Missing Data Mechanisms](#43-diagnosing-missing-data-mechanisms)  
-   4.4 [Methods for Handling Missing Values](#44-methods-for-handling-missing-values)  
-   4.5 [Performance Evaluation](#45-performance-evaluation)  
-   4.6 [Final Imputation](#46-final-imputation)  
-   4.7 [Conclusion](#47-conclusion)
+   - [Overview](#1-overview)  
+   - [Missing Data Analysis](#2-missing-data-analysis)  
+   - [Diagnosing Missing Data Mechanisms](#3-diagnosing-missing-data-mechanisms)  
+   - [Methods for Handling Missing Values](#4-methods-for-handling-missing-values)  
+   - [Performance Evaluation](#5-performance-evaluation)  
+   - [Final Imputation](#6-final-imputation)  
+   - [Conclusion](#7-conclusion)
 
 5. [Credit Score Methodology](#credit-score-methodology)
 
 6. [Insights Deep Dive](#insights-deep-dive)  
-   6.1 [Default Rate Overview](#61-default-rate-overview)  
-   6.2 [Loan Characteristics](#62-loan-characteristics)  
-   6.3 [Behavioral Risk Indicators](#63-behavioral-risk-indicators)  
-   6.4 [Comparative Analysis of Loan Defaults](#64-comparative-analysis-of-loan-defaults)  
-   6.5 [Credit Score Insights](#65-credit-score-insights)
+   - [Default Rate Overview](#1-default-rate-overview)  
+   - [Loan Characteristics](#2-loan-characteristics)  
+   - [Behavioral Risk Indicators](#3-behavioral-risk-indicators)  
+   - [Comparative Analysis of Loan Defaults](#4-comparative-analysis-of-loan-defaults)  
+   - [Credit Score Insights](#5-credit-score-insights)
 
 7. [Predictive Modeling Insights](#predictive-modeling-insights)  
-   7.1 [Model Performance and Selection](#71-model-performance-and-selection)  
-   7.2 [SHAP Analysis: Enhancing Model Interpretability](#72-shap-analysis-enhancing-model-interpretability)  
-   7.3 [Impact of Predictive Model on Loan Approvals and Risk Management](#73-impact-of-predictive-model-on-loan-approvals-and-risk-management)
+   - [Model Performance and Selection](#1-model-performance-and-selection)  
+   - [SHAP Analysis: Enhancing Model Interpretability](#2-shap-analysis-enhancing-model-interpretability)
+   - [SHAP vs Model Predictions](#3-shap-vs-model-predictions)
+   - [Impact of Predictive Model on Loan Approvals and Risk Management](#4-impact-of-predictive-model-on-loan-approvals-and-risk-management)
 
 8. [Recommendations](#recommendations)
 
