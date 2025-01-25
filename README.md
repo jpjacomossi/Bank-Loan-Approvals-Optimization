@@ -1,6 +1,6 @@
 # Optimization of Bank Loan Approvals
 
-# Table of Contents
+## Table of Contents
 
 1. [Background and Overview](#background-and-overview)  
 
