@@ -1,37 +1,52 @@
 # Optimization of Bank Loan Approvals
 
-## Table of Contents
-1. [Background and Overview](#background-and-overview)
+# Table of Contents
+
+1. [Background and Overview](#background-and-overview)  
+
 2. [Data Structure Overview](#data-structure-overview)
+
 3. [Executive Summary](#executive-summary)
-4. [Insights Deep Dive](#insights-deep-dive)
-   - [Default Rate Overview](#1-default-rate-overview)
-   - [Loan Characteristics](#2-loan-characteristics)
-   - [Borrower Demographics and Behavior](#3-borrower-demographics-and-behavior)
-   - [Behavioral Risk Indicators](#4-behavioral-risk-indicators)
-   - [Equity and Collateral](#5-equity-and-collateral)
-   - [Default and Credit Behavior Correlations](#6-default-and-credit-behavior-correlations)
-   - [Comparative Analysis of Loan Defaults](#7-comparative-analysis-of-loan-defaults)
-   - [Key Thresholds for Risk Mitigation](#8-key-thresholds-for-risk-mitigation)
-5. [Predictive Modeling Insights](#9-predictive-modeling-insights)
-   - [Model Performance Overview](#91-model-performance-overview)
-   - [Random Forest Superiority](#92-random-forest-superiority)
-   - [SHAP Analysis: Enhancing Model Interpretability](#93-shap-analysis-enhancing-model-interpretability)
-6. [Recommendations](#recommendations)
-7. [Tools and Technologies](#tools-and-technologies)
+
+4. [Handling Missing Values](#handling-missing-values)  
+   4.1 [Overview](#41-overview)  
+   4.2 [Missing Data Analysis](#42-missing-data-analysis)  
+   4.3 [Diagnosing Missing Data Mechanisms](#43-diagnosing-missing-data-mechanisms)  
+   4.4 [Methods for Handling Missing Values](#44-methods-for-handling-missing-values)  
+   4.5 [Performance Evaluation](#45-performance-evaluation)  
+   4.6 [Final Imputation](#46-final-imputation)  
+   4.7 [Conclusion](#47-conclusion)
+
+5. [Credit Score Methodology](#credit-score-methodology)
+
+6. [Insights Deep Dive](#insights-deep-dive)  
+   6.1 [Default Rate Overview](#61-default-rate-overview)  
+   6.2 [Loan Characteristics](#62-loan-characteristics)  
+   6.3 [Behavioral Risk Indicators](#63-behavioral-risk-indicators)  
+   6.4 [Comparative Analysis of Loan Defaults](#64-comparative-analysis-of-loan-defaults)  
+   6.5 [Credit Score Insights](#65-credit-score-insights)
+
+7. [Predictive Modeling Insights](#predictive-modeling-insights)  
+   7.1 [Model Performance and Selection](#71-model-performance-and-selection)  
+   7.2 [SHAP Analysis: Enhancing Model Interpretability](#72-shap-analysis-enhancing-model-interpretability)  
+   7.3 [Impact of Predictive Model on Loan Approvals and Risk Management](#73-impact-of-predictive-model-on-loan-approvals-and-risk-management)
+
+8. [Recommendations](#recommendations)
+
+9. [Tools and Technologies](#tools-and-technologies)
 
 
 ---
 
 ## Background and Overview
 
-### Introduction ###
+### 1. Introduction 
 
 The Consumer Credit Department of a bank aims to enhance its loan approval process by automating decision-making through a data-driven model. This initiative seeks to optimize lending decisions while adhering to the principles of the Equal Credit Opportunity Act (ECOA), ensuring fairness and compliance.
 
-The proposed model will be developed using historical data from recent loan applicants, enabling the bank to predict the likelihood of default. By leveraging predictive analytics, the bank intends to proactively identify high-risk applicants while maintaining transparency in its decision-making process. This ensures that, in cases of loan denial, clear and understandable explanations can be provided.
+The proposed model will be developed using historical data from recent loan applicants, **enabling the bank to predict the likelihood of default**. By leveraging predictive analytics, the bank intends to **proactively identify high-risk applicants while maintaining transparency in its decision-making process**. This ensures that, in cases of loan denial, clear and understandable explanations can be provided.
 
-The dataset comprises information on 5,960 bank loans, of which 1,189 applicants (approximately 20%) defaulted. The data includes 12 variables for each applicant, offering a foundation for building a model capable of identifying potential risks with precision and reliability.
+The dataset comprises information on 5,960 bank loans, of which 1,189 applicants (approximately 20%) defaulted. The data includes 13 original variables for each applicant, offering a foundation for building a model capable of identifying potential risks with precision and reliability.
 
 This predictive approach will enable the bank to:
 - Improve its lending decisions.
@@ -43,22 +58,22 @@ By achieving these objectives, the bank can maintain a balance between profitabi
 
 ---
 
-### Business Problem
+### 2. Business Problem
 The bank faces a **high loan default rate of nearly 20%**, significantly exceeding the industry standard of 1–5%. This elevated default rate:
 - Negatively impacts the bank’s profitability and reputation.
 - Poses a serious challenge to the bank’s long-term success and competitiveness.
 
 ---
 
-### Business Goal
+### 3. Business Goal
 The primary goal of this project is to **optimize the loan approval process** to address the high default rate. Through improved risk assessment and transparent decision-making, the bank aims to:
-- **Reduce loan defaults** and mitigate credit risk.
+- Reduce loan defaults and mitigate credit risk.
 - Enhance profitability and minimize financial losses.
 - Strengthen its reputation for responsible lending, fostering sustainable growth and competitive advantage.
 
 ---
 
-### Analytics Goals
+### 4. Analytics Goals
 The analytics efforts focus on achieving the following outcomes:
 
 1. **Exploratory Data Analysis (EDA)**:
@@ -80,7 +95,7 @@ The dataset used for this project contains **5,960 observations** and **13 varia
 - Missing values were replaced with `NA` to facilitate handling during analysis.
 - Categorical and binary variables (`DEFAULT`, `REASON`, and `JOB`) were converted into factors to allow proper handling by statistical models.
 
-### Variable Definitions
+### 1. Original Variables
 
 | **Variable Name**  | **Definition**                                                                                   | **Type**          |
 |---------------------|-------------------------------------------------------------------------------------------------|-------------------|
@@ -98,7 +113,7 @@ The dataset used for this project contains **5,960 observations** and **13 varia
 | `CLNO`             | Total number of credit lines the applicant has.                                                  | Numeric (Integer) |
 | `DEBTINC`          | Debt-to-income ratio, representing the applicant’s monthly debt obligations relative to income.   | Numeric           |
 
-### Additional Variables Created During Feature Engineering
+### 2. Derived Variables
 
 | **Variable Name**      | **Definition**                                                                                              | **Type** |
 |-------------------------|----------------------------------------------------------------------------------------------------------|----------|
@@ -116,10 +131,10 @@ This dataset forms the foundation for exploring loan defaults, assessing credit 
 ---
 
 ## Executive Summary
+  
+   By leveraging predictive modeling and conducting a comprehensive exploratory data analysis, this project successfully optimized the bank's loan approval process, reducing its high 20% default rate. The approach supported profitability, promoted sustainable growth, and ensured compliance with the Equal Credit Opportunity Act (ECOA).
 
-This project addresses a bank’s high loan default rate of **20%** by implementing a data-driven approach to optimize the loan approval process. Leveraging predictive modeling, the initiative aimed to reduce defaults, manage and reduce credit risks, and ensure compliance with the Equal Credit Opportunity Act (ECOA), while supporting profitability and sustainable growth.
-
-The dataset consisted of **5,960 records and 13 variables**. After addressing missing data and inconsistencies, **5,572 records** were retained for analysis. Key predictors of loan defaults included:
+   After addressing missing data and inconsistencies, **5,572 records** were retained for analysis. Key predictors of loan defaults included:
 - Debt-to-income ratio
 - Delinquency history
 - Derogatory records
@@ -128,25 +143,31 @@ The dataset consisted of **5,960 records and 13 variables**. After addressing mi
 - Loan amount
 
 A **credit scoring system** inspired by the FICO methodology was developed to categorize applicants into risk groups, such as **"Poor," "Fair," "Good,"** and **"Excellent."** This system provided additional insights into borrower behavior and lending patterns:
-- **Default rates decreased significantly as credit scores improved, dropping below 5% for scores above 732.** These applicants demonstrated strong financial responsibility, making them ideal candidates for loan approvals with minimal risk.
-- **Borrowers in the "Excellent" category exhibited the lowest default rates (4.4%) and the highest average loan amounts (over $21,000).** Their financial stability and reliability make them valuable customers who contribute significantly to the bank’s profitability through larger loan approvals.
-- **Borrowers in the "Poor" category had default rates exceeding 50% and received lower average loan amounts.** These individuals posed the highest risk, necessitating cautious lending practices and stringent approval criteria to safeguard the bank’s financial interests.
+
+- **Borrowers in the "Excellent" category exhibited the lowest default rates (4.4%) and the highest average loan amounts (over $21,000).**
+  - Their financial stability and reliability make them valuable customers.
+  - They are ideal candidates for loan approvals with minimal risk.
+  - They contribute significantly to the bank’s profitability through larger loan approvals.
+
+- **Borrowers in the "Poor" category had default rates exceeding 50% and received lower average loan amounts.**
+  - These individuals posed the highest risk.
+  - They necessitate cautious lending practices and stringent approval criteria to safeguard the bank’s financial interests.
 
 After evaluating multiple machine learning algorithms, the **Random Forest model** demonstrated the best performance. During the test phase it achieved:
 - **Accuracy**: 92.11%
 - **Sensitivity**: 91.51%
 - **Precision**: 73.48%
 
-The model achieved a significant reduction in the estimated default rate, decreasing it from **20% to 2.11%**. Comparisons between historical and model-driven scenarios highlighted:
-- **Reductions in defaulted loan amounts** from **$18,860,200 to $491,100**
-- **Decreases in definitive losses** by **$1,321,568 (98%)**
-- **Decreases in recoverable losses** by **$17,047,532 (97%)**
-- **Adjusted total loan issuance**, reflecting more prudent lending decisions
+The predictive model demonstrated the ability to significantly reduce the current **20%** default rate to an estimated **2.11%** default rate. Comparisons between historical and model-driven scenarios highlighted:
+- **Reductions in defaulted loan amounts** from **$18,860,200 to $491,100**.
+- **Decreases in definitive losses** by **$1,321,568 (98%)**.
+- **Decreases in recoverable losses** by **$17,047,532 (97%)**.
+- **Adjusted total loan issuance from $104,783,000 to $84,764,800**, reflecting more prudent lending decisions.
 
 By integrating this model into its approval process, alongside insights from the credit scoring system, the bank can:
-- Strengthen its risk management capabilities
-- Minimize financial losses
-- Offer more competitive lending terms to reliable borrowers
+- Strengthen its risk management capabilities.
+- Minimize financial losses.
+- Offer more competitive lending terms to reliable borrowers.
 
 This initiative positions the bank for long-term growth, improved profitability, and enhanced customer trust.
 
@@ -154,36 +175,35 @@ This initiative positions the bank for long-term growth, improved profitability,
 
 ## Handling Missing Values
 
-### Overview
+### 1. Overview
 
 Handling missing values is a critical step in ensuring the quality and reliability of the dataset used for analysis and modeling. Missing data, if left unaddressed, can introduce bias, reduce statistical power, or lead to inaccurate conclusions. This section outlines the nature of the missing data in the dataset, the diagnostic tests performed, and the methods implemented to address missing values effectively.
 
 ---
 
-### Missing Data Analysis
+### 2. Missing Data Analysis
 
-The original dataset contained **13 variables**, of which **11 variables had missing values**, accounting for more than **5%** of observations in most cases. The figure     below show the percentage of missing values for each variable and the proportion of records by number of missing values: 
+The original dataset contained **13 variables**, of which **11 variables had missing values**, accounting for more than **5%** of observations in most cases. The figure below show the percentage of missing values for each variable and the proportion of records by number of missing values: 
 
 <div align="center">
-  <img width="355" alt="image" src="https://github.com/user-attachments/assets/21c0e536-d8e2-444f-9904-28a289fd1977" />
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/21c0e536-d8e2-444f-9904-28a289fd1977" />
 </div>
 
-
-#### Key Observations:
-- **56.4%** of the records were complete cases.
+**Key Observations:**
+- **56.4%** of the records are complete cases.
 - Removing all rows with missing data would reduce the dataset to **3,364 observations** (including only **300 defaults**), which is not ideal due to the significant loss of information.
-- A threshold of **4 or more missing values per row** was set to remove rows with excessive missing data, resulting in **5,572 records** retained for further analysis. This approach minimized data loss while preserving data quality.
+- A threshold of **4 or more missing values per row** was set to remove rows with excessive missing data, resulting in **5,621 records** retained for further analysis. This approach minimized data loss while preserving data quality.
 
 ---
 
-### Diagnosing Missing Data Mechanisms
+### 3. Diagnosing Missing Data Mechanisms
 
 Understanding the nature of missingness is critical for selecting appropriate handling methods. Missing data mechanisms were classified as follows:
 - **MCAR (Missing Completely At Random):** Missingness is entirely random and independent of observed or unobserved variables.
 - **MAR (Missing At Random):** Missingness is related to observed data but not to the unobserved data itself.
 - **MNAR (Missing Not At Random):** Missingness depends on the unobserved data.
 
-#### Diagnostic Steps:
+**Diagnostic Steps:**
 1. **Little’s MCAR Test:**
 <div align="center">
   <img width="296" alt="image" src="https://github.com/user-attachments/assets/a0238b27-73da-4d39-a5d2-81718f104083" />
@@ -208,7 +228,7 @@ Understanding the nature of missingness is critical for selecting appropriate ha
 
 ---
 
-### Methods for Handling Missing Values
+### 4. Methods for Handling Missing Values
 
 Given that the missing data followed the MAR mechanism, sophisticated imputation methods were explored. These included:
 
@@ -223,11 +243,11 @@ Given that the missing data followed the MAR mechanism, sophisticated imputation
 
 ---
 
-### Performance Evaluation
+### 5. Performance Evaluation
 
 To evaluate the imputation methods, a complete-case dataset was subjected to 20% artificially induced missingness. The imputed values were compared against the true values using **Root Mean Squared Error (RMSE)** as the performance metric. For **MICE**, the RMSE was averaged across all five imputed datasets.
 
-#### Results:
+**Results:**
 
 | **Variable**  | **MICE (PMM)** | **MICE (Random Forest)** | **MissForest** | **KNN** |
 |---------------|----------------|--------------------------|----------------|---------|
@@ -246,28 +266,29 @@ To evaluate the imputation methods, a complete-case dataset was subjected to 20%
 - KNN imputation showed the highest RMSE, indicating less accurate imputations.
 
 ---
-
-### Final Imputation
+### 6. Final Imputation
 
 Using the **MissForest** algorithm, missing values in the dataset were imputed. This method effectively preserved the overall data structure and maintained consistency with original variable distributions. For example:
 - The mean of `DEBTINC` changed marginally from **34.075** to **34.586**, demonstrating that the imputed values aligned closely with the original data.
 
-The imputed dataset (5,572 records) retained a balanced ratio of default and non-default cases, ensuring the analysis and modeling were based on high-quality data with minimal bias.
+Additionally, **49 records** were removed where the **Credit Line Age (CLAGE)** was greater than zero while the **Number of Credit Lines (CLNO)** was zero. These records represented logical inconsistencies and were excluded to maintain data integrity.
+
+The resulting imputed dataset contains **5,572 records**, retaining a ratio of default and non-default cases very similar to the original. This ensured that the analysis and modeling were based on high-quality data with minimal bias.
 
 ---
-
-### Conclusion
+### 7. Conclusion
 
 Handling missing values improved the quality and reliability of the dataset. By using **MissForest**, the imputed dataset retained its integrity, enabling accurate predictive modeling and actionable insights for optimizing loan approvals. This step laid the foundation for robust analytics and informed decision-making in subsequent stages of the project.
 
 ---
 ## Credit Score Methodology
 
-To assess borrower risk effectively, a custom credit scoring system was developed inspired by from the FICO model. This system was tailored specifically for this project and is based on the dataset's key financial variables. It assigns weighted scores to critical financial factors, calculates a raw credit score for each applicant, and scales the results to the FICO range of **300 to 850** for intuitive interpretation.
+### 1. Overview
+To assess borrower risk effectively, a custom credit scoring system was developed inspired by the FICO model. This system was tailored specifically for this project and is based on the dataset's key financial variables. It assigns weighted scores to critical financial factors, calculates a raw credit score for each applicant, and scales the results to the FICO range of **300 to 850** for intuitive interpretation.
 
 ---
 
-#### **1. Factors and Weights**
+### 2. Factors and Weights
 The scoring system incorporates five categories, aligned with industry standards, each weighted according to its relative importance in predicting credit risk:
 
 | **Category**          | **Dataset Variable**            | **Weight (%)** | **Logic**                                                                                      |
@@ -280,38 +301,38 @@ The scoring system incorporates five categories, aligned with industry standards
 
 ---
 
-#### **2. Scoring Rules and Thresholds**
+### 3. Scoring Rules and Thresholds
 Each factor was binned into categories reflecting varying levels of financial risk. Points were assigned to each bin, scaled so that the maximum raw score aligns with the relative importance of the factor.
 
-##### **2.1 Payment History (DELINQ)**
+**Payment History (DELINQ)**
 - **Rationale**: Frequent missed payments increase default risk. Delinquencies reflect an applicant’s ability to manage debt.
 - **Thresholds**:
   - **0 delinquencies**: 50 points
   - **1 delinquency**: 30 points
   - **2+ delinquencies**: 10 points
 
-##### **2.2 Amounts Owed (Debt-to-Income Ratio, DEBTINC)**
+**Amounts Owed (Debt-to-Income Ratio, DEBTINC)**
 - **Rationale**: High debt-to-income (DTI) ratios signal financial strain and a higher likelihood of default.
 - **Thresholds**:
   - **DTI < 20%**: 50 points (low financial strain)
   - **20% ≤ DTI ≤ 35%**: 30 points (moderate financial strain)
   - **DTI > 35%**: 10 points (high financial strain)
 
-##### **2.3 Length of Credit History (CLAGE)**
+**Length of Credit History (CLAGE)**
 - **Rationale**: Longer credit histories demonstrate financial stability and responsible borrowing over time.
 - **Thresholds**:
   - **CLAGE > 120 months (10 years)**: 50 points
   - **60 ≤ CLAGE ≤ 120 months**: 30 points
   - **CLAGE < 60 months**: 10 points
 
-##### **2.4 Ownership Ratio (OWNERSHIP)**
+**Ownership Ratio (OWNERSHIP)**
 - **Rationale**: Higher ownership ratios indicate significant borrower equity, reducing default risk.
 - **Thresholds**:
   - **OWNERSHIP > 50%**: 50 points
   - **20% ≤ OWNERSHIP ≤ 50%**: 30 points
   - **OWNERSHIP < 20%**: 10 points
 
-##### **2.5 New Credit (Number of Inquiries, NINQ)**
+**New Credit (Number of Inquiries, NINQ)**
 - **Rationale**: Frequent credit inquiries suggest aggressive credit-seeking behavior, which correlates with higher risk.
 - **Thresholds**:
   - **0 inquiries**: 50 points
@@ -320,7 +341,7 @@ Each factor was binned into categories reflecting varying levels of financial ri
 
 ---
 
-#### **3. Scaling the Credit Score**
+### 4. Scaling the Credit Score
 The raw score for each borrower was calculated by summing the points from all factors. To convert these raw scores into a range consistent with FICO (300–850), the following formula was applied:
 
 Scaled Score = 300 + ((Raw Score) / (Max Raw Score) × 550)
@@ -331,7 +352,7 @@ Scaled Score = 300 + ((Raw Score) / (Max Raw Score) × 550)
 
 ---
 
-#### **4. Thresholds for Credit Score Categories**
+### 5. Thresholds for Credit Score Categories
 To align with standard FICO categories, the scaled scores were divided into the following risk groups:
 
 | **Category**    | **Score Range** | **Risk Description**                                                                        |
@@ -344,78 +365,83 @@ To align with standard FICO categories, the scaled scores were divided into the 
 
 ---
 
-#### **5. Transparency and Fairness**
+### 6. Transparency and Fairness
 The custom credit score model:
 - **Promotes Transparency**: Each factor and its contribution to the overall score are explicitly defined.
 - **Ensures Fairness**: By adhering to objective thresholds and scaling rules, the system complies with ethical and regulatory standards, such as the Equal Credit Opportunity Act (ECOA).
 
 By integrating this model into the loan approval process, the bank gains a powerful, interpretable tool for assessing borrower risk while fostering trust and transparency with applicants.
 
+---
+
 ## Insights Deep Dive
 
-This section highlights the key insights extracted from the exploratory data analysis and modeling phases, providing actionable conclusions for optimizing the loan approval process.
+This section highlights the key insights extracted from the exploratory data analysis and modeling phases, providing important conclusions for optimizing the loan approval process.
 
 ---
 
-#### **1. Default Rate Overview**
+### 1. Default Rate Overview
 <div align="center">
-  <img width="474" alt="image" src="https://github.com/user-attachments/assets/2a59fc67-4d52-4df7-8c64-276801d5f611" />
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/2a59fc67-4d52-4df7-8c64-276801d5f611" />
 </div>
 
 - **High Default Rate**: The bank faces a default rate of approximately **20%**, significantly exceeding the industry standard of 1–5%.
 - **Loan Security**: Most loans (82.93%) are fully secured, with default rates around 20%. Unsecured loans, though a small portion (<2%), have a much higher default rate of **32.43%**, emphasizing their riskiness.
 
 ---
-#### **2. Loan Characteristics**
+### 2. Loan Characteristics
 
 - **Default Rates Across Loan Amounts**:
 
-<div align="center">
-  <img width="358" alt="image" src="https://github.com/user-attachments/assets/9cbc0ea5-8aa1-4654-9a41-e5ac0978f3c7" />
-</div>
+   <div align="center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/9cbc0ea5-8aa1-4654-9a41-e5ac0978f3c7" />
+   </div>   
 
   - **Average Loan**: $18,846 with a typical range between $11,300 and $23,500.
-  - **High Risk**: Smaller loans (<$10,000) have higher default rates (above 20%).
+  - **High Risk**: Smaller loans (<$10,000) and larger loans ($35,000>)tend to have higher default rates (above 20%).
   - **Lowest Risk**: Loans between $10,000–$35,000 show the lowest default rates.
-  - **Larger Loans**: Loans exceeding $80,000 exhibit elevated default rates, likely due to over-leveraging.
+  - **Very Larger Loans**: Loans exceeding $75,000 exhibit extremely elevated default rates, likely due to over-leveraging.
 
 ---
 
-#### **3. Behavioral Risk Indicators**
+### 3. Behavioral Risk Indicators
 
 - **Debt-to-Income Ratio (DEBTINC)**:
 
-<div align="center">
-  <img width="376" alt="image" src="https://github.com/user-attachments/assets/0e8d5a14-23bf-4896-b720-4d551b2f787e" />
-</div>
+   <div align="center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/0e8d5a14-23bf-4896-b720-4d551b2f787e" />
+   </div>
 
   - Borrowers with **DEBTINC > 50%** have a **100% default rate**, indicating extremely high risk.
-  - Borrowers with **DEBTINC between 0–10%** also show **default rates above 50%**, possibly due to other factors.
+  - Borrowers with **DEBTINC between 0–10%** also show **default rates above 50%**, possibly due to other factors like unemployment.
   - The safest range is **10–30%**, where default rates are lowest, making this the ideal lending zone.
   - Borrowers outside this range, particularly those above 50%, pose significant financial risks.
 
 - **Number of Inquiries (NINQ)**:
-  <div align="center">
-  <img width="369" alt="image" src="https://github.com/user-attachments/assets/d286ff71-5bcf-4665-8ad6-e080c0bc2f3c" />
-</div>
+  
+     <div align="center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/d286ff71-5bcf-4665-8ad6-e080c0bc2f3c" />
+   </div>
 
   - Higher NINQ correlates with higher default rates.
   - Borrowers with **12+ inquiries** face a **100% default rate**, indicating extreme financial instability.
   - A generally linear trend exists, except for inquiries between **7–11**, where the pattern slightly deviates.
 
 - **Derogatory Marks (DEROG)**:
-<div align="center">
-  <img width="336" alt="image" src="https://github.com/user-attachments/assets/387061fd-5718-429e-8900-1a565acf9879" />
-</div>
+  
+   <div align="center">
+        <img width="500" alt="image" src="https://github.com/user-attachments/assets/387061fd-5718-429e-8900-1a565acf9879" />
+      </div>
 
   - Default rates increase with more derogatory marks.
   - At **2+ derogatory marks** there are more defaulters than non-defaulters.
   - For those with **5+ marks**, the **default rate reaches 100%**, making derogatory marks a strong predictor of risk.
 
 - **Delinquencies (DELINQ)**:
-<div align="center">
-  <img width="373" alt="image" src="https://github.com/user-attachments/assets/a9a22081-49b1-408a-a086-28d307739b5e" />
-</div>
+  
+   <div align="center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/a9a22081-49b1-408a-a086-28d307739b5e" />
+   </div>
 
   - Borrowers with **0 delinquencies** have a low **13.8% default rate**, reflecting financial reliability.
   - With **1 delinquency**, the default rate rises to **27.1%**, doubling to **42.9%** with **2 delinquencies**.
@@ -424,33 +450,33 @@ This section highlights the key insights extracted from the exploratory data ana
 
 - **Credit Line Age (CLAGE)**:
 
-<div align="center">
-  <img width="333" alt="image" src="https://github.com/user-attachments/assets/4ade5d0a-da33-4b3f-b266-049f0a912e7f" />
-</div>
+   <div align="center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/4ade5d0a-da33-4b3f-b266-049f0a912e7f" />
+   </div>
 
   - Borrowers with **shorter credit histories (<180 months)** show higher default rates.
   - Borrowers with **longer credit histories (>180 months)** are less likely to default.
 
 ---
 
-#### **4. Comparative Analysis of Loan Defaults**
+### 4. Comparative Analysis of Loan Defaults
 - **Recoverable vs Definitive Losses**:
 
- <div align="center">
-  <img width="474" alt="image" src="https://github.com/user-attachments/assets/f801e60e-314d-47f3-9d90-3ff48a2cde51" />
-</div>
+    <div align="center">
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/f801e60e-314d-47f3-9d90-3ff48a2cde51" />
+   </div>
 
   - **92.89% of defaulted loans** are recoverable through collateral, reducing the bank’s long-term exposure.
   - **Definitive losses** represent only **7.11%** of total defaults, showing that a strong collateral policy mitigates most financial risks.
 
 ---
-#### **5. Credit Score Insights **
+### 5. Credit Score Insights
 
 - **Default Rates Across Credit Score Categories**:
 
-  <div align="center">
-  <img width="474" alt="image" src="https://github.com/user-attachments/assets/dce9632a-fd1a-4dc1-b5f4-9fc2bbc8120a" />
-</div>
+     <div align="center">
+     <img width="700" alt="image" src="https://github.com/user-attachments/assets/dce9632a-fd1a-4dc1-b5f4-9fc2bbc8120a" />
+   </div>
 
   - Borrowers in the **Poor credit category (300–579)** have the highest default rate, exceeding **50%**.
   - Default rates drop significantly in the **Fair (26%)**, **Good (11.7%)**, **Very Good (5%)**, and **Excellent (4.4%)** categories.
@@ -459,8 +485,8 @@ This section highlights the key insights extracted from the exploratory data ana
 - **Default Rate and Average Loan Amount vs Credit Score**:
 
    <div align="center">
-  <img width="394" alt="image" src="https://github.com/user-attachments/assets/36792e0c-e613-4cb8-ac15-383550306b58" />
-</div>
+     <img width="500" alt="image" src="https://github.com/user-attachments/assets/36792e0c-e613-4cb8-ac15-383550306b58" />
+   </div>
 
    - **Default Rates**:
      - Scores **below 500** have high default rates; restricting loans to **600+** reduces defaults to **<15%**.
@@ -477,8 +503,8 @@ This section highlights the key insights extracted from the exploratory data ana
 - **Default Risk and Average Loan Amount by Credit Score Category**:
 
    <div align="center">
-  <img width="399" alt="image" src="https://github.com/user-attachments/assets/7293d3e5-3350-4c6a-a517-6ef675b661b4" />
-</div>
+     <img width="600" alt="image" src="https://github.com/user-attachments/assets/7293d3e5-3350-4c6a-a517-6ef675b661b4" />
+   </div>
 
   - Borrowers in the **Poor** category have a default rate around **50%** and the lowest average loan amounts (below $18,000).
   - **Fair category** borrowers have a default rate of **30%**, with average loan amounts slightly higher than **Poor** borrowers.
@@ -487,9 +513,9 @@ This section highlights the key insights extracted from the exploratory data ana
 
 - **Impact of Credit Score Thresholds on Default Rate, Loan Amount, and Profit**:
 
-  <div align="center">
-  <img width="474" alt="image" src="https://github.com/user-attachments/assets/3215984c-ec7a-45b2-a0bb-f745cdea2df2" />
-</div>
+     <div align="center">
+     <img width="700" alt="image" src="https://github.com/user-attachments/assets/3215984c-ec7a-45b2-a0bb-f745cdea2df2" />
+   </div>
 
   - Increasing the credit score threshold reduces default rates, particularly beyond the **732 threshold**, where default rates drop below **5%**.
   - Higher thresholds result in fewer loans being issued, reducing the total loan amount and profit.
@@ -502,95 +528,79 @@ The predictive modeling phase provided valuable insights into the bank's loan ap
 
 ---
 
-### 1. Model Performance Overview
+### 1. Model Performance and Selection
 
 | **Model**            | **Accuracy** | **Sensitivity** | **Specificity** | **Precision** | **AUC**  |
 |-----------------------|--------------|-----------------|-----------------|---------------|----------|
 | Logistic Regression   | 78.73%      | 73.66%          | 80.00%          | 48.10%        | 0.8460   |
 | Decision Tree         | 85.10%      | 55.36%          | 92.58%          | 65.26%        | 0.7595   |
-| KNN                   | 87.97%      | 40.63%          | 99.88%          | 98.91%        | 0.9216   |
-| Random Forest         | **91.38%**  | **92.86%**      | **91.01%**      | **72.22%**    | **0.9711** |
+| KNN                   | 87.97%      | 40.63%          | 99.88%          | **98.91%**    | 0.9216   |
+| Random Forest         | **91.38%**  | **92.86%**      | **91.01%**      | 72.22%        | **0.9711** |
 
-#### Key Observations:
-- **Random Forest** emerged as the best-performing model with high sensitivity, precision, and AUC, making it the most reliable option for identifying defaulters.
-- **Logistic Regression** achieved decent AUC and accuracy but lacked precision and sensitivity, making it less reliable for high-risk predictions.
-- **Decision Tree** showed moderate performance with a lower AUC and poor sensitivity.
-- **KNN** demonstrated high precision but poor sensitivity, limiting its usefulness for capturing a sufficient number of defaulters.
-
----
-### 2. Random Forest Superiority
-
-The **Random Forest model** emerged as the optimal predictive tool due to its strong performance across multiple key metrics, striking an effective balance between sensitivity, precision, and overall classification ability:
-
-- **High Sensitivity**: Excels at identifying default-prone applicants, significantly reducing financial risk by minimizing missed defaults.
-- **Strong Precision**: Effectively identifies defaulters with reasonable accuracy, ensuring efficient resource allocation and minimizing false positives. While KNN achieves higher precision, its low sensitivity makes it unreliable overall.
-- **Exceptional AUC (0.9711)**: Indicates the model's outstanding ability to distinguish between defaulters and non-defaulters, showcasing its robustness and reliability in prediction.
-
-This balance makes the Random Forest model the most suitable choice for managing credit risk and optimizing loan approval processes.
+#### Key Insights:
+- **Random Forest** was selected as the best model for its balance of **high sensitivity (92.86%)**, **precision (72.22%)**, and **AUC (0.9711)**.
+- While **KNN** had the highest **precision (98.91%)**, its poor sensitivity (40.63%) made it less effective for capturing defaulters.
+- Random Forest ensures reliable predictions with minimal missed defaults, making it optimal for managing credit risk.
+- During the test set the model achieved a **Sensitivity of 91.51%** and **Precision of 73.48%**.
 
 ---
 
+### 2. SHAP Analysis: Enhancing Model Interpretability
 
-### 3. SHAP Analysis: Enhancing Model Interpretability
-
-**SHAP (Shapley Additive Explanations)** improves the interpretability of the **Random Forest model** by quantifying each feature's influence on individual predictions. This ensures transparency and compliance with **ECOA regulations**.
+**SHAP (Shapley Additive Explanations)** was used to improve the interpretability of the **Random Forest model** by quantifying each feature's influence on individual predictions. This ensures transparency and compliance with **ECOA regulations**.
 
 - **How SHAP Works**:
   - Derived from **Shapley values** in game theory, SHAP calculates each feature's contribution to predictions by evaluating all possible feature combinations.
   - SHAP values indicate whether a feature pushes a prediction towards default (class 1) or non-default (class 0).
 
-SHAP provides clear, actionable insights into how features influence predictions, making the model more transparent and reliable for decision-making.
+This approach provides clear insights into how features influence predictions, making the model more transparent and reliable for decision-making.
 
  **SHAP Value Interpretation**:
 - For individual predictions, SHAP values clearly show how features push the default probability higher or lower.
 
- <div align="center">
-  <img width="700" alt="image" src="https://github.com/user-attachments/assets/25e12a09-1d64-4b10-9ef7-56b94243f20d" />
+<div align="center">
+  <img width="1600" alt="Screenshot 2025-01-23 at 5 53 38 PM" src="https://github.com/user-attachments/assets/67a3b120-c690-4d15-a0be-521e0c3e75ea" />
 </div>
 
    - Example:
      - **Row 1578 (Default)**: High DEBTINC and short CLAGE contributed positively to the predicted probability of default.
      - **Row 2370 (Non-Default)**: Longer CLAGE and no delinquencies reduced the predicted probability of default.
 
-### 4. SHAP vs Model Predictions
+### 3. SHAP vs Model Predictions
 
 <div align="center">
-  <img width="474" alt="image" src="https://github.com/user-attachments/assets/ca555818-4d48-4911-b333-7a8710d3c60b" />
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/ca555818-4d48-4911-b333-7a8710d3c60b" />
 </div>
 
 - The plot compares **Random Forest model probabilities (blue)** with **SHAP-calculated probabilities (red)** for 200 records.
-- Probabilities align closely, especially for lower predictions, with minor discrepancies at higher values where SHAP shows sharper spikes.
+- Probabilities align closely, with minor discrepancies at higher values where SHAP shows sharper spikes.
 - A **Mean Absolute Error (MAE) of 3.23%** confirms SHAP's accuracy in representing the model's predictions.
-- SHAP enhances model transparency while maintaining alignment with prediction outputs.
-
----
 
 With the integration of **SHAP** analysis, the Random Forest model not only excels in predictive performance but also provides a transparent framework for understanding the factors driving loan default risk.
 
 ---
-### 5. Impact of Predictive Model on Loan Approvals and Risk Management
+### 4. Impact of Predictive Model on Loan Approvals and Risk Management
 
-The predictive model has significantly improved the bank's decision-making process by providing clear insights into loan default probabilities. By enabling data-driven risk assessments, the model supports more informed decisions, reduces uncertainty, and enhances the loan approval process. High-risk applicants are identified more accurately, allowing the bank to manage credit risk effectively, optimize profitability, and maintain transparency.
+As it was discussed earlier, the predictive model enhances decision-making by providing clear insights into loan default probabilities, enabling accurate risk assessment, improved profitability, and transparent loan approvals. This section highlights the model's key improvements achieved.
 
 ---
 
-#### **Actual vs Estimated Default Rate with Model-Based Approvals**
+#### Actual vs Estimated Default Rate with Model-Based Approvals
 
 <div align="center">
-  <img width="457" alt="image" src="https://github.com/user-attachments/assets/ced1649b-347d-44c2-b69d-32970a02c3ac" />
+  <img width="600" alt="image" src="https://github.com/user-attachments/assets/ced1649b-347d-44c2-b69d-32970a02c3ac" />
 </div>
 
 
 - **Historical Default Rate**: 19.76%.
-- **Model-Based Default Rate**: 2.11% (an **89% reduction**).
-- **Key Insight**: The model's predictions significantly lower financial risk, reduce defaults, and improve portfolio stability by directing resources toward low-risk applicants.
-
+- **Estimated Model-Based Default Rate**: 2.11% (an **89% reduction**).
+- **Key Insight**: The model's predictions significantly lower financial risk and reduce defaults.
 ---
 
-#### ** Loans Issued vs Defaulted (Pre-Model vs Post-Model)**
+#### Loans Issued vs Defaulted (Pre-Model vs Post-Model)
 
 <div align="center">
-  <img width="451" alt="image" src="https://github.com/user-attachments/assets/091031fa-1c2d-4ef6-82bf-2931c0ed789d" />
+  <img width="700" alt="image" src="https://github.com/user-attachments/assets/091031fa-1c2d-4ef6-82bf-2931c0ed789d" />
 </div>
 
 
@@ -604,10 +614,10 @@ The predictive model has significantly improved the bank's decision-making proce
 
 ---
 
-#### ** Definitive vs Recoverable Losses (Pre-Model vs Post-Model)**
+#### Definitive vs Recoverable Losses (Pre-Model vs Post-Model)
 
 <div align="center">
-  <img width="474" alt="image" src="https://github.com/user-attachments/assets/950a808d-17b1-4228-a56d-0b32df22e894" />
+  <img width="700" alt="image" src="https://github.com/user-attachments/assets/950a808d-17b1-4228-a56d-0b32df22e894" />
 </div>
 
 - **Pre-Model**:
@@ -620,15 +630,13 @@ The predictive model has significantly improved the bank's decision-making proce
 
 ---
 
-### Conclusion
+### 5. Conclusion
 
 The predictive model demonstrates exceptional capability in reducing default rates and financial losses while ensuring smarter loan approvals. It enables the bank to target low-risk applicants with larger loans and better terms, fostering portfolio stability and profitability in real-world scenarios.
 
-
-
 ## Recommendations
 
-Based on the insights gained from the analysis and modeling phases, the following recommendations are proposed to optimize the bank's loan approval process, reduce default rates, and improve financial performance:
+Based on the insights gained from the analysis and modeling phases, the following recommendations are proposed:
 
 ---
 
@@ -646,28 +654,23 @@ Based on the insights gained from the analysis and modeling phases, the followin
 
 ---
 
-### 3. **Risk-Based Pricing and Targeted Pre-Approvals**
-- Implement **risk-based pricing** strategies:
-  - Offer **competitive rates** to low-risk clients with credit scores above **730** to attract and retain reliable borrowers.
-  - Use the model to generate **targeted pre-approvals**, focusing on applicants with strong credit profiles.
-- Adjust interest rates for higher-risk clients to reflect their increased likelihood of default.
+### 3. **Focus on Low-Risk, High-Value Clients**
+- Prioritize applicants with **credit scores over 730**, who demonstrate financial stability and reliability.
+- Implement **risk-based pricing** to:
+  - Offer **competitive interest rates** to attract and retain low-risk clients.
+  - Adjust rates for higher-risk borrowers to reflect their increased likelihood of default.
+- Use the predictive model to generate **targeted pre-approvals** for clients with strong credit profiles.
+- Offer **exclusive benefits** to high-value clients, such as:
+  - **Higher loan limits**.
+  - **Loyalty rewards** programs.
+  - Personalized services to ensure long-term engagement and satisfaction.
 
 ---
 
 ### 4. **Careful Approach to Loans Below $10,000**
-- Stricter approval criteria for smaller loans (<$10,000) due to their higher default risk.
+- Enforce stricter approval criteria for smaller loans (<$10,000) due to their higher default risk.
 - Apply **higher interest rates** to manage financial exposure while maintaining profitability.
-- Regularly monitor and assess the default risk trends associated with these loans.
-
----
-
-### 5. **Focus on High-Value Clients**
-- Prioritize applicants with **credit scores over 730**, who demonstrate strong financial reliability and stability.
-- Offer **exclusive benefits** to attract and retain these clients, such as:
-  - **Competitive interest rates**.
-  - **Higher loan limits**.
-  - **Loyalty rewards** programs.
-- Tailor services to meet the needs of high-value clients, ensuring long-term engagement and satisfaction.
+- Regularly monitor and assess default risk trends associated with these loans to ensure sustainable lending practices.
 
 ---
 
@@ -681,14 +684,15 @@ By adopting these recommendations, the bank can significantly improve its loan a
 - **R**: Used for data preprocessing, analysis, modeling, and visualization.
 
 ### Libraries and Packages
-- **Data Preprocessing**: 
+
+- **Data Preprocessing and Imputation**: 
+  - `dplyr`, `tidyr`, `mice`, `missForest`, `VIM`, `naniar`, `fastDummies`
 - **Visualization**: 
-- **Clustering**: 
-- **Modeling**: 
-- **Evaluation**: 
+  - `ggplot2`, `ggcorrplot`, `plotly`, `gridExtra`, `rpart.plot`
+- **Feature Selection**: 
+  - `Boruta`
+- **Modeling and Evaluation**: 
+  - `caret`, `rpart`, `randomForest`, `class`, `pROC`, `stats`, `car`
+- **Model Interpretation**: 
+  - `fastshap`
 
-### Development Tools
-- **RStudio**: Integrated Development Environment for R programming.
-- **GitHub**: For version control and collaboration.
-
----
