@@ -535,8 +535,8 @@ The predictive modeling phase provided valuable insights into the bank's loan ap
 |-----------------------|--------------|-----------------|-----------------|---------------|----------|
 | Logistic Regression   | 78.73%      | 73.66%          | 80.00%          | 48.10%        | 0.8460   |
 | Decision Tree         | 85.10%      | 55.36%          | 92.58%          | 65.26%        | 0.7595   |
-| KNN                   | 87.97%      | 40.63%          | 99.88%          | **98.91%**    | 0.9216   |
-| Random Forest         | **91.38%**  | **92.86%**      | **91.01%**      | 72.22%        | **0.9711** |
+| KNN                   | 87.97%      | 40.63%          | 99.88%          | 98.91%    | 0.9216   |
+| **Random Forest**         | **91.38%**  | **92.86%**      | **91.01%**      | **72.22%**       | **0.9711** |
 
 #### Key Insights:
 - **Random Forest** was selected as the best model for its balance of **high sensitivity (92.86%)**, **precision (72.22%)**, and **AUC (0.9711)**.
