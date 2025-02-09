@@ -401,7 +401,7 @@ This section highlights the key insights extracted from the exploratory data ana
   - **Average Loan**: $18,846 with a typical range between $11,300 and $23,500.
   - **High Risk**: Smaller loans (<$10,000) and larger loans ($35,000>)tend to have higher default rates (above 20%).
   - **Lowest Risk**: Loans between $10,000–$35,000 show the lowest default rates.
-  - **Very Larger Loans**: Loans exceeding $75,000 exhibit extremely elevated default rates, likely due to over-leveraging.
+  - **Large Loans**: Loans exceeding $75,000 exhibit extremely elevated default rates, likely due to over-leveraging.
 
 ---
 
